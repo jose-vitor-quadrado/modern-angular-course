@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 
 @Component({
   imports: [],
@@ -17,6 +17,13 @@ export class Hello {
   }
 
   protected count = signal(0);
+
+  protected doubleCount = computed(() => this.count() * 2);
+
+  // protected getDoubleCount() {
+  //   console.log('getDoubleCount called');
+  //   return this.count() * 2;
+  // }
 
   protected increaseCounter() {
     this.count.update(value => value + 1);
