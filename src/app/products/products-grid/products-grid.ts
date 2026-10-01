@@ -1,10 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { ProductsCard } from '../products-card/products-card';
+import { Product } from '../product';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  imports: [ ProductsCard ],
+  imports: [ ProductsCard, MatIconModule ],
   selector: 'app-products-grid',
   styleUrl: './products-grid.scss',
   templateUrl: './products-grid.html',
 })
-export class ProductsGrid {}
+export class ProductsGrid {
+  protected readonly products = signal<Product[]>([
+    {
+      id: 1,
+      name: 'Premium Wireless Headphones',
+      description: 'High-quality wireless headphones with noise cancellation and premium sound quality.',
+      price: 199.99,
+      originalPrice: 249.99,
+    },
+    {
+      id: 2,
+      name: 'Smart Fitness Watch',
+      description: 'Track your fitness goals with this advanced smartwatch featuring heart rate monitoring.',
+      price: 299.99,
+    },
+    {
+      id: 3,
+      name: 'Portable Bluetooth Speaker',
+      description: 'Compact speaker with powerful bass and 12-hour battery life.',
+      price: 79.99,
+    }
+  ]);
+}
