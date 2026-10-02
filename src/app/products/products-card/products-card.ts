@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { Product } from '../product';
 
 @Component({
   imports: [
@@ -11,4 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './products-card.scss',
   templateUrl: './products-card.html',
 })
-export class ProductsCard {}
+export class ProductsCard {
+  readonly product = input.required<Product>();
+  readonly addButtonLabel = input('Add to Cart');
+}
